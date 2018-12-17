@@ -9,6 +9,8 @@ Can you just Google it? Yes. Is leaving terminal for newbs? Yes.
 ## Usage
 `byteme <input value> <input format>`
 
+Note: if no input format is specified, ByteMe assumes that the input format is Bytes.  
+
 Optional `-r / --round` flag to print output as rounded floats instead of in scientific notation.
 
 Input/Output format can be:
