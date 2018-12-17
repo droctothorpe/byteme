@@ -57,3 +57,5 @@ Input/Output format can be:
 | petabits  | 1.25e-13 |
 +-----------+----------+
 ```
+
+PRs are welcome! 
