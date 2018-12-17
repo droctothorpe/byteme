@@ -1,6 +1,6 @@
 # ByteMe
 A simple CLI for converting between bytes, kilobytes, megabytes, etc.
-Can you just Google it? Yes. Is leaving terminal for newbs? Yes. 
+Can you just Google it? Yes. Is leaving terminal for newbs? Maybe.
 
 ## Installation
 
@@ -30,7 +30,7 @@ Input/Output format can be:
 | tb | terabits |
 | pb | petabits | 
 
-## Examples commands:
+## Examples:
 `$ byteme 1000 `
 
 `$ byteme 1000 GB`
