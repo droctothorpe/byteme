@@ -1,96 +1,27 @@
 #!/usr/bin/env ruby
-require 'terminal-table'
+load 'convert'
+load 'usage'
 
-@usage = <<-HEREDOC
-Usage: <input value> <input format> 
-Optional -r / --round flag to print output as rounded floats instead of in scientific notation.
-Input/Output format can be:
-
-B: Bytes
-KB: Kilobytes
-MB: Megabytes
-GB: Gigabytes
-TB: Terabytes
-PB: Petabytes
-b: bits
-kb: kilobits
-mb: megabits
-gb: gigabits
-tb: terabits
-pb: petabits
-
-Examples:
-$ byteme 1000 
-$ byteme 1000 GB
-$ byteme 1000 kb -r
-HEREDOC
-
-def convert(input, input_format)
-  formulas = {
-    B: [1, 'Bytes'],
-    KB: [10**3, 'Kilobytes'],
-    MB: [10**6, 'Megabytes'],
-    GB: [10**9, 'Gigabytes'],
-    TB: [10**12, 'Terabytes'],
-    PB: [10**15, 'Petabytes'],
-    b: [0.125, 'bits'],
-    kb: [8*10**3, 'kilobits'],
-    mb: [8*10**6, 'megabits'],
-    gb: [8*10**9, 'gigabits'],
-    tb: [8*10**12, 'terabits'],
-    pb: [8*10**15, 'petabits']
-  }
-
-  # Sanatization
-  if !formulas.keys.include?(input_format.to_sym)
-    puts "Error: input format (#{input_format}) is incorrect."
+def parse
+  if ARGV.length < 1 || ARGV.length > 4
     puts @usage
     return
   end
 
-  rows = []
-  formulas.keys.each do |key|
-    numerator = formulas[input_format.to_sym][0]
-    raw_value = input.to_f * numerator / formulas[key.to_sym][0]
-    if @round
-      output = ( "%.5f" % raw_value ).sub(/\.?0*$/, '')
-    else
-      output = raw_value
-    end
-    output_format = formulas[key.to_sym][1]
-    rows.push([output_format, output])
+  @round = false
+  if ARGV.include?('-r') | ARGV.include?('--round')
+    @round = true
+    ARGV.pop
   end
 
-  table = Terminal::Table.new :headings => ['Type', 'Value'], :rows => rows
-  # table.style = {:all_separators => true}
-  puts table
+  input = ARGV[0]
+  input_format = ARGV[1] || 'B'
+  convert(input, input_format)
 end
 
-# Command Parsing
-if ARGV.length < 1
-  puts @usage
-  exit
-end
-
-@round = false
-if ARGV.include?('-r') | ARGV.include?('--r')
-  @round = true
-end
-
-input = ARGV[0]
-
-if !ARGV[1]
-  input_format = 'B'
-elsif ARGV[1][0] == '-'
-  input_format = 'B'
-else
-  input_format = ARGV[1]
-end
-
-convert(input, input_format)
+parse
 
 =begin
 References:
 https://www.eagle-web-designs.com/cool_stuff/ByteConversion.html
-https://bundler.io/v1.17/guides/creating_gem.html
 =end
