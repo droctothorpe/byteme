@@ -1,5 +1,5 @@
 $:.unshift(File.dirname(__FILE__) + "/lib")
-require "byteme/byteme"
+require "byteme/version"
 
 Gem::Specification.new do |gem|
   gem.name        = 'byteme'

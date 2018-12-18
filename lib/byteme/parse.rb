@@ -1,7 +1,7 @@
 module Parse
   def self.parse
     if ARGV.length < 1 || ARGV.length > 4
-      puts @usage
+      puts Usage::USAGE
       return
     end
 
@@ -15,6 +15,4 @@ module Parse
     input_format = ARGV[1] || 'B'
     Convert.convert(input, input_format)
   end
-
-  # parse
 end

@@ -1,5 +1,5 @@
 module Usage
-  @usage = <<-HEREDOC
+  USAGE = <<-HEREDOC
   Usage: <input value> <input format> 
   Optional -r / --round flag to print output as rounded floats instead of in scientific notation.
   Input/Output format can be:
