@@ -1,4 +1,5 @@
 # ByteMe
+![image](image.jpg)
 A simple CLI for converting between bytes, kilobytes, megabytes, etc.
 Can you just Google it? Yes. Is leaving terminal for newbs? Maybe.
 
