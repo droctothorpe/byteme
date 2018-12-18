@@ -1,27 +1,5 @@
 #!/usr/bin/env ruby
-load 'convert'
-load 'usage'
 
-def parse
-  if ARGV.length < 1 || ARGV.length > 4
-    puts @usage
-    return
-  end
-
-  @round = false
-  if ARGV.include?('-r') | ARGV.include?('--round')
-    @round = true
-    ARGV.pop
-  end
-
-  input = ARGV[0]
-  input_format = ARGV[1] || 'B'
-  convert(input, input_format)
-end
-
-parse
-
-=begin
-References:
-https://www.eagle-web-designs.com/cool_stuff/ByteConversion.html
-=end
+$:.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
+require 'byteme'
+Parse.parse
