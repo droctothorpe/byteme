@@ -26,7 +26,7 @@ module Convert
     formulas.keys.each do |key|
       numerator = formulas[input_format.to_sym][0]
       raw_value = input.to_f * numerator / formulas[key.to_sym][0]
-      if @round
+      if Parse.get
         output = ( "%.5f" % raw_value ).sub(/\.?0*$/, '')
       else
         output = raw_value

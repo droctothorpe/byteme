@@ -5,10 +5,21 @@ module Parse
       return
     end
 
-    @round = false
+    if ARGV[0] 
+      if ARGV[0] == 'help'
+        puts Usage::USAGE
+        return
+      end
+    end
+
+    @@round = false
     if ARGV.include?('-r') | ARGV.include?('--round')
-      @round = true
+      @@round = true
       ARGV.pop
+    end
+
+    def self.get
+      @@round
     end
 
     input = ARGV[0]
