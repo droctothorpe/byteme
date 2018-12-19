@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.description = "A simple CLI that converts between bytes, kilobytes, megabytes, etc."
   gem.authors     = ["Alexander Perlman"]
   gem.email       = 'thumbthrough@gmail.com'
-  gem.files       =  Dir.glob('{bin,lib}/**/*') + %w(README.md LICENSE Gemfile)
+  gem.files       =  Dir.glob('{bin,lib}/**/*') + %w(README.md LICENSE Gemfile gingerbread.jpg)
   gem.executables = ["byteme"]
   gem.homepage    = 'https://github.com/droctothorpe/byteme'
   gem.license     = 'MIT'

@@ -28,15 +28,16 @@ module Convert
     end
 
     rows = []
-    FORMULAS.keys.each do |key|
-      numerator = FORMULAS[input_format.to_sym][0]
-      raw_value = input.to_f * numerator / FORMULAS[key.to_sym][0]
+    FORMULAS.each do |key, value|
+      numerator = input.to_f * FORMULAS[input_format.to_sym][0]
+      denominator = value[0]
+      raw_value = numerator / denominator
       if Parse.get
         output = ( "%.5f" % raw_value ).sub(/\.?0*$/, '')
       else
         output = raw_value.to_s.sub(/\.0*$/, '')
       end
-      output_format = FORMULAS[key.to_sym][1]
+      output_format = value[1]
       rows.push([output_format, output])
       # Add seperator between output categories.
       if ([key.to_s] & ['PB', 'pb']).any? 
