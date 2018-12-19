@@ -60,13 +60,13 @@ Input/Output format can be any value from the left-hand column:
 | Kilobits  | 0.125                 |
 | Megabits  | 0.000125              |
 | Gigabits  | 1.25e-07              |
-| Terabits  | 1.25e-10               |
+| Terabits  | 1.25e-10              |
 | Petabits  | 1.25e-13              |
 +-----------+-----------------------+
 | Kibibytes | 0.9765625             |
 | Mebibytes | 0.00095367431640625   |
 | Gibibytes | 9.313225746154785e-07 |
-| Tebibytes | 9.094947017729282e-10  |
+| Tebibytes | 9.094947017729282e-10 |
 | Pebibytes | 8.881784197001252e-13 |
 +-----------+-----------------------+
 ```
