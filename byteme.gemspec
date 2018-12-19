@@ -13,5 +13,5 @@ Gem::Specification.new do |gem|
   gem.executables = ["byteme"]
   gem.homepage    = 'https://github.com/droctothorpe/byteme'
   gem.license     = 'MIT'
-  gem.add_runtime_dependency 'terminal-table', '~> 1.8.0'
+  gem.add_runtime_dependency 'terminal-table', '~> 1.8', '>= 1.8.0'
 end
