@@ -34,7 +34,7 @@ module Convert
       if Parse.get
         output = ( "%.5f" % raw_value ).sub(/\.?0*$/, '')
       else
-        output = raw_value.to_s.sub(/\.?0*$/, '')
+        output = raw_value.to_s.sub(/\.0*$/, '')
       end
       output_format = FORMULAS[key.to_sym][1]
       rows.push([output_format, output])
